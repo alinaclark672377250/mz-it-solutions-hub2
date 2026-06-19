@@ -66,7 +66,7 @@ function ServiceDetail() {
           <h2 className="font-display text-3xl font-bold">What's included</h2>
           <p className="mt-3 text-muted-foreground">Every {service.title.toLowerCase()} engagement covers the essentials below — and we'll tailor the scope to your site.</p>
           <ul className="mt-8 space-y-3">
-            {service.features.map((f) => (
+            {service.features.map((f: string) => (
               <li key={f} className="flex items-start gap-3 rounded-xl border border-border/70 bg-surface/40 px-4 py-3.5">
                 <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                 <span>{f}</span>
