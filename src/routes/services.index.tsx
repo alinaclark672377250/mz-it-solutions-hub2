@@ -19,15 +19,19 @@ export const Route = createFileRoute("/services/")({
 function ServicesIndex() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-      <div className="max-w-3xl">
-        <div className="text-xs uppercase tracking-widest text-primary">Services</div>
-        <h1 className="mt-3 font-display text-4xl sm:text-5xl font-bold">Everything you need to run a modern IT environment.</h1>
-        <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-          From a single CCTV camera to a full data center build-out, we deliver end-to-end IT infrastructure with documentation, support and a finish you can be proud of.
+      <div className="max-w-3xl border-b border-border pb-8">
+        <div className="mono-label">Services · 06 capabilities</div>
+        <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">Everything you need to run a modern IT environment.</h1>
+        <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+          From a single CCTV camera to a full data-center build-out, we deliver end-to-end IT infrastructure with documentation, support and a finish you can be proud of.
         </p>
       </div>
-      <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {services.map((s) => <ServiceCard key={s.slug} service={s} />)}
+      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-t border-border">
+        {services.map((s, i) => (
+          <div key={s.slug} className="-mt-px -ml-px">
+            <ServiceCard service={s} index={i} />
+          </div>
+        ))}
       </div>
     </section>
   );

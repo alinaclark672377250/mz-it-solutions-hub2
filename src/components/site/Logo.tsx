@@ -1,15 +1,20 @@
 export function Logo({ className = "h-9 w-9" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id="mz-g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="oklch(0.82 0.14 210)" />
-          <stop offset="100%" stopColor="oklch(0.78 0.16 70)" />
-        </linearGradient>
-      </defs>
-      <rect x="1.5" y="1.5" width="37" height="37" rx="9" fill="none" stroke="url(#mz-g)" strokeWidth="1.5" />
-      <path d="M9 28 L9 12 L15 22 L21 12 L21 28" fill="none" stroke="url(#mz-g)" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round" />
-      <path d="M22 12 L31 12 L22 28 L31 28" fill="none" stroke="url(#mz-g)" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round" />
+      <rect x="0.5" y="0.5" width="39" height="39" rx="3" fill="oklch(0.18 0.03 250)" />
+      <text
+        x="20"
+        y="26"
+        textAnchor="middle"
+        fontFamily="Inter, system-ui, sans-serif"
+        fontSize="16"
+        fontWeight="800"
+        letterSpacing="-0.04em"
+        fill="white"
+      >
+        MZ
+      </text>
+      <rect x="32" y="32" width="6" height="6" fill="oklch(0.66 0.19 42)" />
     </svg>
   );
 }

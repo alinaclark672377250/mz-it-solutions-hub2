@@ -17,13 +17,13 @@ const nav = [
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="flex items-center gap-2.5">
-          <Logo className="h-9 w-9" />
+        <Link to="/" className="flex items-center gap-3">
+          <Logo className="h-8 w-8" />
           <div className="leading-tight">
-            <div className="font-display text-sm font-bold tracking-tight">MZ IT Services</div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Lahore · Pakistan</div>
+            <div className="text-sm font-bold tracking-tight">MZ IT Services</div>
+            <div className="mono-label">Lahore · PK</div>
           </div>
         </Link>
 
@@ -33,7 +33,7 @@ export function Header() {
               key={n.to}
               to={n.to}
               className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              activeProps={{ className: "px-3 py-2 text-sm text-foreground font-medium" }}
+              activeProps={{ className: "px-3 py-2 text-sm text-foreground font-semibold" }}
               activeOptions={{ exact: n.to === "/" }}
             >
               {n.label}
@@ -41,12 +41,12 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-3">
           <a href={`tel:${site.phoneIntl}`} className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5">
             <Phone className="h-3.5 w-3.5" /> {site.phone}
           </a>
-          <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium">
-            <Link to="/contact">Get a Quote</Link>
+          <Button asChild size="sm" className="rounded-none bg-foreground text-background hover:bg-accent text-xs font-bold tracking-widest uppercase px-5 py-5">
+            <Link to="/contact">Schedule Audit</Link>
           </Button>
         </div>
 
@@ -62,8 +62,8 @@ export function Header() {
                   {n.label}
                 </Link>
               ))}
-              <Button asChild className="mt-4 bg-primary text-primary-foreground">
-                <Link to="/contact" onClick={() => setOpen(false)}>Get a Quote</Link>
+              <Button asChild className="mt-4 rounded-none bg-foreground text-background hover:bg-accent uppercase tracking-widest text-xs font-bold">
+                <Link to="/contact" onClick={() => setOpen(false)}>Schedule Audit</Link>
               </Button>
             </div>
           </SheetContent>
