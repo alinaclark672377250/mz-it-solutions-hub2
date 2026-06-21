@@ -65,14 +65,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "MZ IT Services — IT Infrastructure, CCTV & Networks in Lahore" },
       { name: "twitter:description", content: "MZ IT Services delivers CCTV, network infrastructure, data center setup, biometric access control and IT support across Lahore, Pakistan." },
       { name: "twitter:image", content: photos[1] },
-      { name: "theme-color", content: "#f8fafc" },
+      { name: "theme-color", content: "#0A1628" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f25a129e-c9ad-4e0d-99e5-c159e5681179/id-preview-dfcf948c--76ed0d00-dab6-477c-9a5d-f5cba9d9bd89.lovable.app-1782067415170.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f25a129e-c9ad-4e0d-99e5-c159e5681179/id-preview-dfcf948c--76ed0d00-dab6-477c-9a5d-f5cba9d9bd89.lovable.app-1782067415170.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" },
     ],
     scripts: [
       {
