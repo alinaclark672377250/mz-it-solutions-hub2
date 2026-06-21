@@ -65,14 +65,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "MZ IT Services — IT Infrastructure, CCTV & Networks in Lahore" },
       { name: "twitter:description", content: "MZ IT Services delivers CCTV, network infrastructure, data center setup, biometric access control and IT support across Lahore, Pakistan." },
       { name: "twitter:image", content: photos[1] },
-      { name: "theme-color", content: "#0A1628" },
+      { name: "theme-color", content: "#f8fafc" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" },
     ],
     scripts: [
       {
