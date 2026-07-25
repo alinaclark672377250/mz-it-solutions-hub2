@@ -1,16 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Phone, MessageCircle, ShieldCheck, Cable, Clock, MapPin, Check } from "lucide-react";
+import { ArrowRight, Phone, MessageCircle, ShieldCheck, Cable, Clock, MapPin, Sparkles, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { services, site, photos } from "@/lib/site";
 import { ServiceCard } from "@/components/site/ServiceCard";
+import { BrandSlideshow } from "@/components/site/BrandSlideshow";
+import promoVideo from "@/assets/promo-video.mp4.asset.json";
+import promoVideo2 from "@/assets/promo-video-2.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "MZ IT Services — CCTV, Network & IT Infrastructure in Lahore" },
       { name: "description", content: "Lahore-based specialists in CCTV cameras, structured cabling, data center networks, biometric access control and IT support. Trusted by businesses across Punjab." },
-      { property: "og:title", content: "MZ IT Services — Infrastructure that works." },
-      { property: "og:description", content: "CCTV, networks, data centers and biometric systems — engineered, documented and serviceable." },
+      { property: "og:title", content: "MZ IT Services — Enterprise IT, Built Right" },
+      { property: "og:description", content: "CCTV, networks, data centers and biometric systems — installed clean, supported well." },
       { property: "og:image", content: photos[1] },
       { property: "og:url", content: "/" },
     ],
@@ -22,253 +25,181 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
-      <Hero />
-      <Capabilities />
-      <ServicesGrid />
-      <Process />
-      <FieldGallery />
-      <CTA />
-    </>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="bg-surface-elevated">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 md:py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 border border-border bg-surface">
-          {/* Vertical metadata rail */}
-          <div className="hidden lg:flex lg:col-span-1 border-r border-border flex-col items-center py-8 justify-between bg-surface-elevated">
-            <span className="-rotate-90 whitespace-nowrap mono-label">Verified Infrastructure</span>
-            <div className="flex flex-col gap-3">
-              <div className="w-1 h-1 rounded-full bg-border" />
-              <div className="w-1 h-1 rounded-full bg-border" />
-              <div className="w-1 h-1 bg-accent" />
-            </div>
-            <span className="mono-label">v1.0</span>
-          </div>
-
-          {/* Content */}
-          <div className="lg:col-span-6 p-8 md:p-14 flex flex-col justify-center">
-            <div className="inline-flex items-center gap-2 mb-6">
-              <div className="w-2.5 h-2.5 bg-accent" />
-              <span className="mono-label">Lahore, Pakistan // Engineering Group</span>
-            </div>
-
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-[1.05] tracking-tight">
-              MZ IT SERVICES
-              <span className="block text-muted-foreground font-normal mt-2 text-3xl md:text-5xl">Infrastructure that works.</span>
-            </h1>
-
-            <p className="mt-6 text-muted-foreground text-base md:text-lg max-w-lg leading-relaxed">
-              Specialized engineering for data centers, network architecture and security systems. Directed by Muhammad Zubair with a focus on field-proven reliability.
-            </p>
-
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-              {[
-                { t: "Connectivity", d: "Network design & cabling." },
-                { t: "Security", d: "CCTV & biometric access control." },
-                { t: "Support", d: "SLA-based maintenance & on-site IT." },
-                { t: "Hardware", d: "Data center racks & patch panels." },
-              ].map((b) => (
-                <div key={b.t} className="border-l-2 border-border pl-4 hover:border-accent transition-colors">
-                  <h3 className="font-bold text-sm uppercase tracking-wider">{b.t}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">{b.d}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="rounded-none bg-foreground text-background hover:bg-accent uppercase tracking-widest text-xs font-bold px-8 py-6">
-                <Link to="/contact">Schedule Audit</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-none border-border bg-transparent hover:bg-surface-elevated uppercase tracking-widest text-xs font-bold px-8 py-6">
-                <Link to="/projects">View Project Specs</Link>
-              </Button>
-              <Button asChild variant="ghost" size="lg" className="rounded-none hover:bg-surface-elevated text-sm">
-                <a href={`tel:${site.phoneIntl}`}><Phone className="mr-2 h-4 w-4" />{site.phone}</a>
-              </Button>
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="lg:col-span-5 relative bg-surface-elevated border-t lg:border-t-0 lg:border-l border-border min-h-[500px]">
-            <img
-              src={photos[1]}
-              alt="MZ IT Services network rack installation in Lahore"
-              loading="eager"
-              className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-            />
-            <div className="absolute inset-0 bg-foreground/5 pointer-events-none" />
-            <div className="absolute bottom-8 left-0 right-0 px-8">
-              <div className="bg-surface border border-border p-6 shadow-card">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="mono-label">Deployment_Ref · 2025.04</div>
-                  <span className="inline-block w-2 h-2 bg-accent mt-1.5" />
-                </div>
-                <p className="font-bold text-sm leading-snug">
-                  Real field performance across data centers in Lahore and surrounding Punjab.
-                </p>
-                <div className="mt-4 grid grid-cols-3 gap-3 mono-label">
-                  <div><div className="text-foreground font-bold text-base">96</div>port panel</div>
-                  <div><div className="text-foreground font-bold text-base">Cat6A</div>certified</div>
-                  <div><div className="text-foreground font-bold text-base">0</div>downtime</div>
-                </div>
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 grid-bg pointer-events-none" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-20 pb-24 lg:pt-28 lg:pb-32 relative">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 text-xs">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-muted-foreground">Serving Lahore & Punjab</span>
+              </div>
+              <h1 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05]">
+                Enterprise IT Infrastructure, <span className="text-gradient">Built Right.</span>
+              </h1>
+              <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                MZ IT Services designs, installs and maintains CCTV systems, structured networks, data-center racks and biometric access control for businesses, schools and institutions across Lahore.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium">
+                  <Link to="/contact">Request a Site Survey <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-border bg-transparent hover:bg-surface">
+                  <a href={site.whatsapp} target="_blank" rel="noopener"><MessageCircle className="mr-2 h-4 w-4" /> WhatsApp Us</a>
+                </Button>
+                <Button asChild variant="ghost" size="lg" className="hover:bg-surface">
+                  <a href={`tel:${site.phoneIntl}`}><Phone className="mr-2 h-4 w-4" /> {site.phone}</a>
+                </Button>
+              </div>
+              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-primary" /> Licensed installers</div>
+                <div className="flex items-center gap-2"><Cable className="h-4 w-4 text-primary" /> Cat6 / Cat6A / Fiber</div>
+                <div className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary" /> 24/7 support contracts</div>
               </div>
             </div>
+            <div className="lg:col-span-5 relative">
+              <BrandSlideshow />
+            </div>
+
           </div>
         </div>
+      </section>
 
-        {/* Status strip */}
-        <div className="border-x border-b border-border bg-surface px-6 py-3 flex flex-wrap items-center justify-between gap-3 mono-label">
-          <span>Status · Engineering-grade deployments</span>
-          <span className="hidden md:inline">Coverage · Lahore + Punjab</span>
-          <span>Response · On-site within 24h</span>
+      {/* Stats */}
+      <section className="border-y border-border/60 bg-surface/40">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { v: "100+", l: "Racks Deployed" },
+            { v: "500+", l: "Cameras Installed" },
+            { v: "50+", l: "Happy Clients" },
+            { v: "5+", l: "Years of Service" },
+          ].map((s) => (
+            <div key={s.l}>
+              <div className="font-display text-4xl font-bold text-gradient">{s.v}</div>
+              <div className="mt-1 text-sm text-muted-foreground">{s.l}</div>
+            </div>
+          ))}
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function Capabilities() {
-  return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-      <div className="grid lg:grid-cols-12 gap-10 border border-border bg-surface">
-        {[
-          { k: "100+", l: "Racks deployed" },
-          { k: "500+", l: "Cameras installed" },
-          { k: "50+", l: "Active clients" },
-          { k: "5+", l: "Years field experience" },
-        ].map((s, i) => (
-          <div key={s.l} className={`lg:col-span-3 p-8 ${i !== 0 ? "border-t lg:border-t-0 lg:border-l border-border" : ""}`}>
-            <div className="mono-label">0{i + 1}</div>
-            <div className="mt-3 text-4xl font-bold tracking-tight">{s.k}</div>
-            <div className="mt-1 text-sm text-muted-foreground">{s.l}</div>
+      {/* Services */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-24">
+        <div className="flex items-end justify-between gap-6 mb-12">
+          <div>
+            <div className="text-xs uppercase tracking-widest text-primary">What we do</div>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold">Five services. One reliable partner.</h2>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function ServicesGrid() {
-  return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-      <div className="flex items-end justify-between gap-6 mb-10 border-b border-border pb-6">
-        <div>
-          <div className="mono-label">Capabilities</div>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Six services. One reliable partner.</h2>
+          <Link to="/services" className="hidden sm:inline-flex items-center text-sm text-muted-foreground hover:text-primary">
+            All services <ArrowRight className="ml-1 h-4 w-4" />
+          </Link>
         </div>
-        <Link to="/services" className="hidden sm:inline-flex items-center mono-label hover:text-accent">
-          All services <ArrowRight className="ml-2 h-3.5 w-3.5" />
-        </Link>
-      </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-t border-border">
-        {services.map((s, i) => (
-          <div key={s.slug} className="-mt-px -ml-px">
-            <ServiceCard service={s} index={i} />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Process() {
-  const steps = [
-    { t: "Consult", d: "Phone or on-site consultation to understand goals." },
-    { t: "Survey", d: "We map the building, drops, power and cooling." },
-    { t: "Design", d: "Detailed BOQ, diagram and timeline — no surprises." },
-    { t: "Install", d: "Cabling, racks, devices, labelled and tested." },
-    { t: "Support", d: "Documented handover + optional AMC." },
-  ];
-  return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-      <div className="grid lg:grid-cols-12 gap-10 items-start">
-        <div className="lg:col-span-4">
-          <div className="mono-label">Engagement Process</div>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">A simple, accountable five-step process.</h2>
-          <p className="mt-4 text-muted-foreground">From a phone call to a fully documented handover — here is exactly what to expect.</p>
-          <div className="mt-6 flex items-center gap-3">
-            <ShieldCheck className="h-4 w-4 text-accent" />
-            <span className="text-sm">Licensed installers · documented handover</span>
-          </div>
-          <div className="mt-2 flex items-center gap-3">
-            <Cable className="h-4 w-4 text-accent" />
-            <span className="text-sm">Cat6 / Cat6A / Fiber certification</span>
-          </div>
-          <div className="mt-2 flex items-center gap-3">
-            <Clock className="h-4 w-4 text-accent" />
-            <span className="text-sm">24/7 support contracts available</span>
-          </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((s) => <ServiceCard key={s.slug} service={s} />)}
         </div>
-        <ol className="lg:col-span-8 border border-border bg-surface divide-y divide-border">
-          {steps.map((s, i) => (
-            <li key={s.t} className="grid grid-cols-12 gap-4 p-6 hover:bg-surface-elevated transition-colors">
-              <div className="col-span-2 mono-label pt-1">Step {String(i + 1).padStart(2, "0")}</div>
-              <div className="col-span-3 font-bold tracking-tight">{s.t}</div>
-              <div className="col-span-7 text-sm text-muted-foreground">{s.d}</div>
+      </section>
+
+      {/* Process */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-24">
+        <div className="max-w-2xl">
+          <div className="text-xs uppercase tracking-widest text-primary">How we work</div>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold">A simple, accountable process.</h2>
+          <p className="mt-4 text-muted-foreground">From a quick phone call to a fully documented hand-over — here's exactly what to expect.</p>
+        </div>
+        <ol className="mt-12 grid md:grid-cols-5 gap-4">
+          {[
+            { t: "Consult", d: "Free phone or on-site consultation to understand your goals." },
+            { t: "Site Survey", d: "We map the building, count drops, and check power and cooling." },
+            { t: "Design & Quote", d: "Detailed BOQ, network diagram and timeline — no surprises." },
+            { t: "Install", d: "Our team handles cabling, racks, devices and clean labeling." },
+            { t: "Support", d: "Documented handover plus optional AMC for ongoing care." },
+          ].map((step, i) => (
+            <li key={step.t} className="relative rounded-2xl border border-border/70 bg-surface/40 p-6">
+              <div className="text-xs font-mono text-primary">0{i + 1}</div>
+              <div className="mt-2 font-display text-lg font-semibold">{step.t}</div>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{step.d}</p>
             </li>
           ))}
         </ol>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function FieldGallery() {
-  const pics = [photos[8], photos[1], photos[3], photos[0], photos[5], photos[7]];
-  return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-      <div className="flex items-end justify-between gap-6 mb-10 border-b border-border pb-6">
-        <div>
-          <div className="mono-label">From the field</div>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Recent installations.</h2>
-        </div>
-        <Link to="/projects" className="hidden sm:inline-flex items-center mono-label hover:text-accent">
-          View gallery <ArrowRight className="ml-2 h-3.5 w-3.5" />
-        </Link>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-0 border-l border-t border-border">
-        {pics.map((src, i) => (
-          <figure key={i} className="-mt-px -ml-px relative border border-border bg-surface overflow-hidden group">
-            <img
-              src={src}
-              alt={`MZ IT Services installation ${i + 1}`}
-              loading="lazy"
-              className="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-            />
-            <figcaption className="absolute top-3 left-3 bg-surface/95 backdrop-blur px-2 py-1 mono-label border border-border">
-              IMG_{String(i + 1).padStart(3, "0")}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function CTA() {
-  return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-      <div className="border border-border bg-foreground text-background p-10 md:p-14 grid md:grid-cols-12 gap-8 items-center">
-        <div className="md:col-span-8">
-          <div className="mono-label" style={{ color: "color-mix(in oklab, white 60%, transparent)" }}>Next step</div>
-          <h3 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Planning a new office, lab or data rack?</h3>
-          <p className="mt-4 text-base opacity-80 max-w-xl">Free site survey and itemised quote — usually within 48 hours across Lahore.</p>
-          <div className="mt-5 flex items-center gap-2 text-sm opacity-80">
-            <MapPin className="h-4 w-4 text-accent" /> Based in Lahore · we travel across Punjab.
+      {/* Featured projects */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-24">
+        <div className="flex items-end justify-between gap-6 mb-10">
+          <div>
+            <div className="text-xs uppercase tracking-widest text-primary">From the field</div>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold">Recent installations</h2>
           </div>
+          <Link to="/projects" className="hidden sm:inline-flex items-center text-sm text-muted-foreground hover:text-primary">
+            View gallery <ArrowRight className="ml-1 h-4 w-4" />
+          </Link>
         </div>
-        <div className="md:col-span-4 flex flex-wrap gap-3 md:justify-end">
-          <Button asChild size="lg" className="rounded-none bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-widest text-xs font-bold px-6 py-6">
-            <Link to="/contact">Get a Quote <ArrowRight className="ml-2 h-4 w-4" /></Link>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="rounded-none border-white/30 bg-transparent text-background hover:bg-white/10 uppercase tracking-widest text-xs font-bold px-6 py-6">
-            <a href={site.whatsapp} target="_blank" rel="noopener"><MessageCircle className="mr-2 h-4 w-4" /> WhatsApp</a>
-          </Button>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {[photos[8], photos[1], photos[3], photos[0], photos[5], photos[7], photos[6], photos[4], photos[13], photos[14], photos[15]].map((src, i) => (
+            <div key={i} className={`relative overflow-hidden rounded-xl border border-border ${i === 0 ? "row-span-2 col-span-2" : ""}`}>
+              <img src={src} alt={`MZ IT Services project ${i + 1}`} loading="lazy" className="h-full w-full object-cover transition hover:scale-105 duration-500" style={{ minHeight: i === 0 ? 380 : 180 }} />
+            </div>
+          ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Testimonial */}
+      <section className="mx-auto max-w-5xl px-4 sm:px-6 py-24">
+        <div className="rounded-3xl border border-border bg-surface/50 p-10 md:p-14 relative overflow-hidden">
+          <Sparkles className="absolute top-6 right-6 h-6 w-6 text-primary/40" />
+          <blockquote className="font-display text-2xl md:text-3xl leading-snug">
+            "Zubair's team rebuilt our entire data rack and rewired three floors with proper Cat6A. Cable management is a work of art — and zero downtime during the cutover."
+          </blockquote>
+          <div className="mt-6 text-sm text-muted-foreground">— IT Manager, corporate office, Lahore</div>
+        </div>
+      </section>
+
+      {/* Promo Videos */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-24">
+        <div className="text-center mb-10">
+          <div className="text-xs uppercase tracking-widest text-primary">See us in action</div>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold">Watch our work</h2>
+        </div>
+        <div className="rounded-3xl overflow-hidden border border-border bg-black/80 aspect-video">
+          <video
+            src={promoVideo.url}
+            controls
+            playsInline
+            className="w-full h-full"
+            poster={photos[1]}
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div className="mt-8 rounded-3xl overflow-hidden border border-border bg-black/80 aspect-video">
+          <video
+            src={promoVideo2.url}
+            controls
+            playsInline
+            className="w-full h-full"
+            poster={photos[11]}
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-24">
+        <div className="relative overflow-hidden rounded-3xl border border-border p-10 md:p-16" style={{ background: "linear-gradient(135deg, color-mix(in oklab, var(--primary) 14%, var(--surface)), var(--surface))" }}>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="font-display text-3xl md:text-4xl font-bold">Planning a new office, lab or data rack?</h3>
+              <p className="mt-4 text-muted-foreground">Get a free site survey and detailed quote — usually within 48 hours.</p>
+            </div>
+            <div className="flex flex-wrap gap-3 md:justify-end">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90"><Link to="/contact">Get a Quote <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+              <Button asChild variant="outline" size="lg" className="border-border bg-transparent"><a href={`tel:${site.phoneIntl}`}><Phone className="mr-2 h-4 w-4" />{site.phone}</a></Button>
+            </div>
+          </div>
+          <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground"><MapPin className="h-4 w-4 text-primary" /> Based in Lahore. We travel across Punjab for larger projects.</div>
+        </div>
+      </section>
+    </>
   );
 }

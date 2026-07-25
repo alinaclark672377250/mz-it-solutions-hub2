@@ -25,33 +25,26 @@ const captions = [
   "Rack-top assembly",
   "Cable management in progress",
   "Equipment mounting",
-  "96-port patch panel — finished",
+  "Finished patch panel — 96 ports",
   "Colour-coded patching",
+  "Live rack — before cleanup",
+  "Multi-switch stack with patch panels",
+  "Cable tray & conduit routing",
 ];
 
 function Projects() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-      <div className="max-w-3xl border-b border-border pb-8">
-        <div className="mono-label">Gallery · 10 installations</div>
-        <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">From the field.</h1>
-        <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl">
-          Real photos from real installations across Lahore — racks, patch panels, switches and cable management.
-        </p>
+      <div className="max-w-2xl">
+        <div className="text-xs uppercase tracking-widest text-primary">Gallery</div>
+        <h1 className="mt-3 font-display text-4xl sm:text-5xl font-bold">From the field.</h1>
+        <p className="mt-5 text-lg text-muted-foreground">Real photos from real installations across Lahore — racks, patch panels, switches and cable management.</p>
       </div>
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-t border-border">
+      <div className="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
         {photos.map((src, i) => (
-          <figure key={i} className="-mt-px -ml-px border border-border bg-surface group">
-            <div className="relative overflow-hidden">
-              <img src={src} alt={captions[i]} loading="lazy" className="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
-              <div className="absolute top-3 left-3 bg-surface/95 backdrop-blur px-2 py-1 mono-label border border-border">
-                IMG_{String(i + 1).padStart(3, "0")}
-              </div>
-            </div>
-            <figcaption className="px-5 py-4 border-t border-border flex items-center justify-between">
-              <span className="text-sm font-medium">{captions[i]}</span>
-              <span className="w-1.5 h-1.5 bg-accent" />
-            </figcaption>
+          <figure key={i} className="break-inside-avoid rounded-2xl overflow-hidden border border-border bg-surface/40 group">
+            <img src={src} alt={captions[i]} loading="lazy" className="w-full h-auto group-hover:scale-[1.02] transition duration-500" />
+            <figcaption className="px-4 py-3 text-sm text-muted-foreground">{captions[i]}</figcaption>
           </figure>
         ))}
       </div>

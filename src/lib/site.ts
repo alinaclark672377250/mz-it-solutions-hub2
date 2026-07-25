@@ -8,6 +8,17 @@ import p7 from "@/assets/photos/p7.asset.json";
 import p8 from "@/assets/photos/p8.asset.json";
 import p9 from "@/assets/photos/p9.asset.json";
 import p10 from "@/assets/photos/p10.asset.json";
+import p11 from "@/assets/photos/p11.asset.json";
+import p12 from "@/assets/photos/p12.asset.json";
+import p13 from "@/assets/photos/p13.asset.json";
+import p14 from "@/assets/photos/p14.asset.json";
+import p15 from "@/assets/photos/p15.asset.json";
+import p16 from "@/assets/photos/p16.asset.json";
+import cctvImg from "@/assets/services/cctv.png.asset.json";
+import networkImg from "@/assets/services/network.png.asset.json";
+import itSupportImg from "@/assets/services/it-support.png.asset.json";
+import computerLabImg from "@/assets/services/computer-lab.png.asset.json";
+import dataCenterImg from "@/assets/services/data-center.png.asset.json";
 
 export const site = {
   name: "MZ IT Services",
@@ -15,22 +26,21 @@ export const site = {
   owner: "Muhammad Zubair",
   city: "Lahore",
   country: "Pakistan",
-  phone: "0303 4435797",
-  phoneIntl: "+923034435797",
+  phone: "0328 4501906",
+  phoneIntl: "+923284501906",
   email: "Muhammadzubairofficial003@gmail.com",
-  whatsapp: "https://wa.me/923034435797",
+  whatsapp: "https://wa.me/923284501906",
   address: "Lahore, Punjab, Pakistan",
 } as const;
 
-export const photos = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10].map((p) => p.url);
+export const photos = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16].map((p) => p.url);
 
 export type ServiceSlug =
   | "cctv-cameras"
   | "network-infrastructure"
   | "it-support"
   | "data-center"
-  | "computer-lab-setup"
-  | "biometric-access-control";
+  | "computer-lab-setup";
 
 export interface Service {
   slug: ServiceSlug;
@@ -59,7 +69,7 @@ export const services: Service[] = [
     ],
     description:
       "End-to-end CCTV deployments for offices, factories, schools and retail across Lahore. We design coverage maps, install cameras, configure recorders, and hand over a system you can monitor from anywhere.",
-    hero: photos[2],
+    hero: cctvImg.url,
   },
   {
     slug: "network-infrastructure",
@@ -68,15 +78,12 @@ export const services: Service[] = [
     tagline: "Cat6 / Cat6A / fiber, switches, routers & enterprise Wi-Fi",
     icon: "Network",
     features: [
-      "Structured cabling — Cat6, Cat6A & fiber backbone",
       "Patch panel termination & labeling",
-      "Managed switches, routers & firewalls",
       "Enterprise Wi-Fi design & site surveys",
-      "VLAN, QoS and network segmentation",
     ],
     description:
       "From a single floor to a multi-building campus, we plan and install cabling, racks and active equipment to enterprise standards — colour-coded, labelled, tested and documented.",
-    hero: photos[8],
+    hero: networkImg.url,
   },
   {
     slug: "it-support",
@@ -88,12 +95,10 @@ export const services: Service[] = [
       "On-site engineer visits across Lahore",
       "Remote troubleshooting & helpdesk",
       "Server, workstation and printer support",
-      "Annual Maintenance Contracts (AMC)",
-      "Backup, patching & antivirus management",
     ],
     description:
       "Predictable monthly support contracts that keep your team productive. SLAs you can measure, engineers you can reach, and a quarterly health report that tells you what we did.",
-    hero: photos[3],
+    hero: itSupportImg.url,
   },
   {
     slug: "data-center",
@@ -110,7 +115,7 @@ export const services: Service[] = [
     ],
     description:
       "We specialise in clean, serviceable data-center networks. Every cable is measured, routed and labelled so future changes take minutes — not days.",
-    hero: photos[1],
+    hero: dataCenterImg.url,
   },
   {
     slug: "computer-lab-setup",
@@ -119,32 +124,13 @@ export const services: Service[] = [
     tagline: "From wiring to workstations — ready on day one",
     icon: "MonitorSmartphone",
     features: [
-      "Site planning & furniture layout",
       "Power, networking & internet provisioning",
       "Workstation imaging & deployment",
-      "Teacher console & content-filtering",
       "Training and handover documentation",
     ],
     description:
       "Complete computer lab deployments — power, network drops, desks, PCs, software and a teacher console. We deliver a lab that's ready for students from the first session.",
-    hero: photos[6],
-  },
-  {
-    slug: "biometric-access-control",
-    title: "Biometric & Access Control",
-    short: "Know who's in, when, and where.",
-    tagline: "Attendance & door access integrated with your HR system",
-    icon: "Fingerprint",
-    features: [
-      "Fingerprint, face and card-based readers",
-      "Door locks, magnetic locks & turnstiles",
-      "Attendance & payroll integration",
-      "Multi-site centralised management",
-      "Visitor management workflows",
-    ],
-    description:
-      "Modern access-control systems that secure your premises and automate attendance — fully integrated with the HR or payroll software your team already uses.",
-    hero: photos[5],
+    hero: computerLabImg.url,
   },
 ];
 

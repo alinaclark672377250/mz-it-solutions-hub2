@@ -14,7 +14,6 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
-import { photos } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -56,22 +55,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "MZ IT Services — IT Infrastructure, CCTV & Networks in Lahore" },
       { name: "description", content: "MZ IT Services delivers CCTV, network infrastructure, data center setup, biometric access control and IT support across Lahore, Pakistan." },
-      { property: "og:title", content: "MZ IT Services — IT Infrastructure, CCTV & Networks in Lahore" },
-      { property: "og:description", content: "MZ IT Services delivers CCTV, network infrastructure, data center setup, biometric access control and IT support across Lahore, Pakistan." },
       { property: "og:site_name", content: "MZ IT Services" },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: photos[1] },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "MZ IT Services — IT Infrastructure, CCTV & Networks in Lahore" },
-      { name: "twitter:description", content: "MZ IT Services delivers CCTV, network infrastructure, data center setup, biometric access control and IT support across Lahore, Pakistan." },
-      { name: "twitter:image", content: photos[1] },
       { name: "theme-color", content: "#0A1628" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f25a129e-c9ad-4e0d-99e5-c159e5681179/id-preview-dfcf948c--76ed0d00-dab6-477c-9a5d-f5cba9d9bd89.lovable.app-1782067415170.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f25a129e-c9ad-4e0d-99e5-c159e5681179/id-preview-dfcf948c--76ed0d00-dab6-477c-9a5d-f5cba9d9bd89.lovable.app-1782067415170.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" },
@@ -84,7 +74,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "LocalBusiness",
           name: "MZ IT Services",
           description: "IT infrastructure, CCTV, networking, data center and biometric access control services in Lahore.",
-          telephone: "+923034435797",
+          telephone: "+923284501906",
           email: "Muhammadzubairofficial003@gmail.com",
           address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
           areaServed: "Lahore, Pakistan",
