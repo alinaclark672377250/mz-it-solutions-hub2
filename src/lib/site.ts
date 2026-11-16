@@ -26,10 +26,10 @@ export const site = {
   owner: "Muhammad Zubair",
   city: "Lahore",
   country: "Pakistan",
-  phone: "0328 4501906",
-  phoneIntl: "+923284501906",
+  phone: "0303 4435797",
+  phoneIntl: "+923034435797",
   email: "Muhammadzubairofficial003@gmail.com",
-  whatsapp: "https://wa.me/923284501906",
+  whatsapp: "https://wa.me/923034435797",
   address: "Lahore, Punjab, Pakistan",
 } as const;
 

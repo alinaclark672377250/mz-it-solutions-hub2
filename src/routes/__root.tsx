@@ -74,7 +74,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "LocalBusiness",
           name: "MZ IT Services",
           description: "IT infrastructure, CCTV, networking, data center and biometric access control services in Lahore.",
-          telephone: "+923284501906",
+          telephone: "+923034435797",
           email: "Muhammadzubairofficial003@gmail.com",
           address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
           areaServed: "Lahore, Pakistan",

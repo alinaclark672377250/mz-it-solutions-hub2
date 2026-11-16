@@ -10,7 +10,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — MZ IT Services Lahore | Request a Quote" },
-      { name: "description", content: "Contact MZ IT Services for CCTV, networking, data center and IT support quotes in Lahore. Call 0328 4501906 or email us today." },
+      { name: "description", content: "Contact MZ IT Services for CCTV, networking, data center and IT support quotes in Lahore. Call 0303 4435797 or email us today." },
       { property: "og:title", content: "Contact MZ IT Services" },
       { property: "og:description", content: "Call, WhatsApp or email us — usually back within 24 hours." },
       { property: "og:url", content: "/contact" },
